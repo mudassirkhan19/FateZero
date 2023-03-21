@@ -22,7 +22,7 @@ validation_sample_logger_config:
     source_prompt: "${train_dataset.prompt}"
     prompts: [
         # a silver jeep driving down a curvy road in the countryside,
-        watercolor painting of a silver jeep driving down a curvy road in the countryside,
+        a silver jeep driving down a curvy road in the countryside in claymation style,
     ]
     p2p_config:
         0: 
@@ -43,7 +43,7 @@ validation_sample_logger_config:
             
             # Amplify the target-words cross attention, larger value, more close to target
             eq_params: 
-                words: ["watercolor"]
+                words: ["claymation style"]
                 values: [10,10] 
             
             # Target structure-divergence hyperparames
@@ -61,7 +61,7 @@ validation_sample_logger_config:
     clip_length: "${..train_dataset.n_sample_frame}"
     sample_seeds: [0]
 
-    num_inference_steps: 10
+    num_inference_steps: 30
     prompt2prompt_edit: True
 
 disk_store: True

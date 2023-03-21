@@ -1,6 +1,6 @@
 # CUDA_VISIBLE_DEVICES=0 python test_fatezero.py --config config/fast_teaser/jeep_watercolor.yaml
 
-pretrained_model_path: "./ckpt/stable-diffusion-v1-4"
+pretrained_model_path: "./models/sd1_4"
 
 train_dataset:
     path: "data/car-turn"
@@ -22,7 +22,7 @@ validation_sample_logger_config:
     source_prompt: "${train_dataset.prompt}"
     prompts: [
         # a silver jeep driving down a curvy road in the countryside,
-        watercolor painting of a silver jeep driving down a curvy road in the countryside,
+        van gogh painting of a silver jeep driving down a curvy road in the countryside,
     ]
     p2p_config:
         0: 
@@ -43,7 +43,7 @@ validation_sample_logger_config:
             
             # Amplify the target-words cross attention, larger value, more close to target
             eq_params: 
-                words: ["watercolor"]
+                words: ["van gogh"]
                 values: [10,10] 
             
             # Target structure-divergence hyperparames
@@ -61,7 +61,7 @@ validation_sample_logger_config:
     clip_length: "${..train_dataset.n_sample_frame}"
     sample_seeds: [0]
 
-    num_inference_steps: 10
+    num_inference_steps: 20
     prompt2prompt_edit: True
 
 model_config:
